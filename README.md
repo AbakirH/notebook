@@ -42,12 +42,16 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Login
+   * An user can login to app with user id and password.
+   * An user can choose the role: student and teacher. 
+* Stream
+   * Student can see the individual and average grades for a class.
+   * Student can see the list of classes.  
+   * An instructor can see the list of students, emails, and classes. 
+   * An instructor can update the grade as needed.
+* Profile
+   * Student can check school year, GPA, and name.
 
 ### 3. Navigation
 
