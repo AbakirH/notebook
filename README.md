@@ -13,11 +13,17 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 ### App Evaluation
 
 - **Category:** Education
-- **Mobile:** 
+- **Mobile:**
+  -   There are not that many apps that teachers and students can use to track their grades and assignments they need to complete. By creating the notebook app, we give students the ability to know when any assignment their teacher posted is up and a convenient way to check their grades and be notified when it changes.
 - **Story:** 
-- **Market:** 
-- **Habit:** 
-- **Scope:** 
+  -  As a student, I have used many apps to check my grades for classes and either it was way to complicated to do so 
+- **Market:** School Classroom
+  -  There will always be students who need to learn and want to have a convenient way to access their schoolwork and know when their grades are changed. Our market is the school classroom where teachers can update grades for their students, and students can see those grades. 
+- **Habit:**
+  -  This app will be used when school is in session, and students will be checking this app daily to see their grades and what assignments are posted at the moment. The average user in this app, for the time being, will only be able to view their grades for each assignment the teach posts. In comparison, the teacher can create assignments and give grades back to students.
+- **Scope:**
+  -  The scope of this app is well-formed as it is simple to make and can be built upon. If we finish on time, then we will be able to implement our optional stories.
+
 
 ## Product Spec
 
