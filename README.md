@@ -8,7 +8,7 @@
 
 ## Overview
 ### Description
-Notebook is a simple app that allows instructor to post grades to his/her students. Students will be able to see their average grade once the grade is posted. 
+Notebook is a simple app that allows instructor to post grades to his/her students. Students will be able to see their average grades for the class and for each assignment.
 
 ### App Evaluation
 
