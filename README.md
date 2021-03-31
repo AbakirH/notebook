@@ -11,13 +11,13 @@
 Notebook is a simple app that allows instructor to post grades to his/her students. Students will be able to see their average grade once the grade is posted. 
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
+
 - **Category:** Education
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+- **Mobile:** 
+- **Story:** 
+- **Market:** 
+- **Habit:** 
+- **Scope:** 
 
 ## Product Spec
 
@@ -31,8 +31,8 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* A student can check the GPA, school year, name in the profile.
+* An instructor can see the list of students, emails, and classes. 
 
 ### 2. Screen Archetypes
 
@@ -61,7 +61,6 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
    * ...
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="https://github.com/AbakirH/notebook/blob/main/IMG_0023.jpg?raw=true" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
