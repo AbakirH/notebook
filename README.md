@@ -51,11 +51,15 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 
 ### 3. Navigation
 
-**Tab Navigation** (Tab to Screen)
+**Teacher’s Tab Navigation** (Tab to Screen)
+* Profile
+* Grades
+* Input Grades
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+**Student’sTab Navigation** (Tab to Screen)
+* Profile
+* Classes
+* What-If
 
 **Flow Navigation** (Screen to Screen)
 
