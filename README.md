@@ -8,11 +8,11 @@
 
 ## Overview
 ### Description
-[Description of your app]
+Notebook is a simple app that allows instructor to post grades to his/her students. Students will be able to see their average grade once the grade is posted. 
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
-- **Category:**
+- **Category:** Education
 - **Mobile:**
 - **Story:**
 - **Market:**
@@ -25,8 +25,9 @@
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* As a student/instructor, an user can sign in and log in to the app.
+* As a student, the user can check the grades.
+* As an instructor, the user can post the students' grade. 
 
 **Optional Nice-to-have Stories**
 
