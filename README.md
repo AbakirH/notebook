@@ -63,12 +63,12 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Login
+* Register - The user can sign up or login in to their account
+* Creation
+   * Teacher can create an assignment that she wants to give students a grade for
+* Stream - Users can scroll through important recourses in a list
+   * Students can scroll through the different classes they are assigned to and check their grades for that class
 
 ## Wireframes
 <img src="https://github.com/AbakirH/notebook/blob/main/IMG_0023.jpg?raw=true" width=600>
