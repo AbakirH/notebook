@@ -95,6 +95,44 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
    | updatedAt     | DateTime | date when post is last updated (default field) |
    
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
+- - Home Feed Teacher Screen
+      - (Read/GET) Query all classes where the teacher teaches 
+         ```swift
+         let query = PFQuery(className:"Class")
+         query.whereKey("teacher", equalTo: currentUser)
+         query.order(byDescending: "createdAt")
+         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let error = error { 
+               print(error.localizedDescription)
+            } else if let posts = posts {
+               print("Successfully retrieved \(posts.count) posts.")
+           // TODO: Do something with posts...
+            }
+         }
+         ```
+      - (Create/POST) Create a new class they are teaching
+      - (Delete) Delete existing class
+      - (Create/POST) Create a new grade for a student in a class
+      - (Change) Change existing grade for a student
+   - Create Grade Screen
+      - (Create/POST) Create a new grade object
+   - Profile Screen
+      - (Read/GET) Query logged in user object
+      - (Update/PUT) Update user profile image
+   - Home Feed Student Screen
+      - (Read/GET) Query all classes the student is talking 
+         ```swift
+         let query = PFQuery(className:"Class")
+         query.whereKey("student", equalTo: currentUser)
+         query.order(byDescending: "createdAt")
+         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let error = error { 
+               print(error.localizedDescription)
+            } else if let posts = posts {
+               print("Successfully retrieved \(posts.count) posts.")
+           // TODO: Do something with posts...
+            }
+         }
+         ```
+      - (Read/GET) Query all grades the student has 
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
