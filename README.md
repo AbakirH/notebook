@@ -82,7 +82,18 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
+### Models
+#### Post
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | user      | String   | name user is used to login |
+   | teacher        | Bool | is this account a teacher or not |
+   | password       | String   | password for user to use to login |
+   | commentsCount | Number   | number of comments that has been posted to an image |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
 ### Models
 [Add table of models]
 ### Networking
