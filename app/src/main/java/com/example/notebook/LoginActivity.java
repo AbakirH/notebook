@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnSignUp);
 
         btnLogin.setOnClickListener(v -> {
+            setContentView(R.layout.activity_login);
             Log.i(TAG, "onClick login button");
             String username = etUsername.getText().toString();
             String password = etPassword.getText().toString();
@@ -45,9 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 //
         btnSignUp.setOnClickListener(v -> {
             Log.i(TAG, "onClick signup button");
-            String username = etUsername.getText().toString();
-            String password = etPassword.getText().toString();
-            signupUser(username, password);
+            goSignupActivity();
         });
     }
 
@@ -65,27 +64,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void signupUser(String username, String password) {
-        Log.i(TAG, "Attempting to signup user " + username);
-        // Create the ParseUser
-        ParseUser user = new ParseUser();
-        // Set core properties
-        user.setUsername(username);
-        user.setPassword(password);
-        // Invoke signUpInBackground
-        user.signUpInBackground(e -> {
-            if (e != null) {
-                Log.e(TAG, "Issue with signup", e);
-                Toast.makeText(com.example.notebook.LoginActivity.this, "Issue with signup!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            goMainActivity();
-            //ParseUser.getCurrentUser().pinInBackground();
-        });
-    }
-
     private void goMainActivity() {
         Intent i = new Intent(this, com.example.notebook.MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+    private void goSignupActivity() {
+        Intent i = new Intent(this, com.example.notebook.SignupActivity.class);
         startActivity(i);
         finish();
     }
