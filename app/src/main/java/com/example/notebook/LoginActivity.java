@@ -28,7 +28,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         if (ParseUser.getCurrentUser() != null) {
-            goMainActivity();
+            if(ParseUser.getCurrentUser().get("Role").equals("Teacher")){
+                Log.i(TAG, "Role is " + ParseUser.getCurrentUser().get("Role"));
+                goMainActivity();
+            }else {
+                goStudentActivity();
+            }
         }
 
         etUsername = findViewById(R.id.etUsername);
