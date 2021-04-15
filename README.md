@@ -32,7 +32,7 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-- [x]As a student/instructor, an user can sign in and log in to the app.
+- [x] As a student/instructor, an user can sign in and log in to the app.
 - [x] Student and Teachr see different Screens 
 - [x] App knows if the user is logged in or out even if the app is closed.
 -[ ]As a student, the user can check the grades.
