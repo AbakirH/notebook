@@ -4,13 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back_gradient"
     android:orientation="vertical"
-    tools:context=".SignupActivity">
+    tools:context=".SignupActivity"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/Roles"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Create a New User"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"/>
+
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="317dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -18,16 +36,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/textbox_back"
+        android:drawableLeft="@drawable/ic_outline_person_24"
+        android:padding="5dp"
+        android:textColor="@color/colorInput"
+        android:textColorHint="@color/colorHint"/>
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="317dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:background="@drawable/textbox_back"
+        android:drawableLeft="@drawable/ic_outline_lock_24"
+        android:padding="5dp"
+        android:textColor="@color/colorInput"
+        android:textColorHint="@color/colorHint"/>
 
     <TextView
         android:id="@+id/Roles"
@@ -46,15 +74,19 @@
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:text="Sign UP" />
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:text="Sign UP"
+        android:textColor="@color/colorInput"
+        android:background="@drawable/loginbutton_back"/>
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:text="Login" />
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:text="Login"
+        android:textColor="@color/colorInput"
+        android:background="@drawable/loginbutton_back"/>
 
 
 
