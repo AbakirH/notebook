@@ -10,6 +10,9 @@
 ### Description
 Notebook is a simple app that allows instructor to post grades to his/her students. Students will be able to see their average grades for the class and for each assignment.
 
+
+### Milestone 1 Progess
+![](https://i.imgur.com/QxwH8Xe.gif)
 ### App Evaluation
 
 - **Category:** Education
