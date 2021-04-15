@@ -50,32 +50,6 @@ public class PostsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        rvPosts = view.findViewById(R.id.rvPosts);
-        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
-
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                Log.e(TAG, "fetching data");
-                allPosts = new ArrayList<>();
-                adapter = new PostsAdapter(getContext(), allPosts);
-                rvPosts.setAdapter(adapter);
-                rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
-                queryPosts();
-                swipeContainer.setRefreshing(false);
-            }
-        });
-
-        allPosts = new ArrayList<>();
-        adapter = new PostsAdapter(getContext(), allPosts);
-        rvPosts.setAdapter(adapter);
-        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
-        queryPosts();
     }
 
     protected void queryPosts() {

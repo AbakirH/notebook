@@ -92,13 +92,23 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(com.example.notebook.SignupActivity.this, "Issue with signup!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            goMainActivity();
+            if(role.equals("Teacher")){
+                goMainActivity();
+            }else {
+                goStudentActivity();
+            }
+
             //ParseUser.getCurrentUser().pinInBackground();
         });
     }
 
     private void goMainActivity() {
         Intent i = new Intent(this, com.example.notebook.MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+    private void goStudentActivity() {
+        Intent i = new Intent(this, com.example.notebook.StudentActivity.class);
         startActivity(i);
         finish();
     }
