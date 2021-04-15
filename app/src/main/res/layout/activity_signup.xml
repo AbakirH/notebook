@@ -29,6 +29,20 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
+    <TextView
+        android:id="@+id/Roles"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Roles:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/role"
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp" />
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="342dp"
@@ -42,7 +56,7 @@
         android:layout_marginLeft="25dp"
         android:text="Login" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
+
+
 </LinearLayout>

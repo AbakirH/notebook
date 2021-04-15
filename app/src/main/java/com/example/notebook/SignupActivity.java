@@ -5,12 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -20,12 +27,23 @@ public class SignupActivity extends AppCompatActivity {
     private EditText etPassword;
     private Button btnLogin;
     private Button btnSignUp;
+    private String role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "signup page switched ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        final Spinner spinner = (Spinner) findViewById(R.id.role);
+        List<String> roles = new ArrayList<String>();
+        roles.add("Teacher");
+        roles.add("Student");
+
+        ArrayAdapter<String> dataAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, roles);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
 
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
@@ -44,7 +62,21 @@ public class SignupActivity extends AppCompatActivity {
             String password = etPassword.getText().toString();
             signupUser(username, password);
         });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                role = (String) parent.getItemAtPosition(position);
+                Log.i(TAG, "Selected : " + role);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
+
     private void signupUser(String username, String password) {
         Log.i(TAG, "Attempting to signup user " + username);
         // Create the ParseUser
@@ -52,6 +84,7 @@ public class SignupActivity extends AppCompatActivity {
         // Set core properties
         user.setUsername(username);
         user.setPassword(password);
+        user.put("Role", role);
         // Invoke signUpInBackground
         user.signUpInBackground(e -> {
             if (e != null) {
