@@ -28,7 +28,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         if (ParseUser.getCurrentUser() != null) {
-            goMainActivity();
+            if(ParseUser.getCurrentUser().get("Role").equals("Teacher")){
+                Log.i(TAG, "Role is " + ParseUser.getCurrentUser().get("Role"));
+                goMainActivity();
+            }else {
+                goStudentActivity();
+            }
         }
 
         etUsername = findViewById(R.id.etUsername);
@@ -58,7 +63,12 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(com.example.notebook.LoginActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            goMainActivity();
+            if(ParseUser.getCurrentUser().get("Role").equals("Teacher")){
+                Log.i(TAG, "Role is " + ParseUser.getCurrentUser().get("Role"));
+                goMainActivity();
+            }else {
+                goStudentActivity();
+            }
             //ParseUser.getCurrentUser().pinInBackground();
         });
 
@@ -66,6 +76,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goMainActivity() {
         Intent i = new Intent(this, com.example.notebook.MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+    private void goStudentActivity() {
+        Intent i = new Intent(this, com.example.notebook.StudentActivity.class);
         startActivity(i);
         finish();
     }
