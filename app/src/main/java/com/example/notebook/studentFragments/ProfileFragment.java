@@ -9,13 +9,14 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.notebook.LoginActivity;
 import com.example.notebook.R;
 import com.example.notebook.fragments.PostsFragment;
 import com.parse.ParseUser;
 
-public class ProfileFragment extends PostsFragment {
+public class ProfileFragment extends Fragment {
     private Button logOut;
     public ProfileFragment() {
         // Required empty public constructor

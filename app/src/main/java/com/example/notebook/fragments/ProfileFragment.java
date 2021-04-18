@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.notebook.LoginActivity;
 import com.example.notebook.Post;
@@ -21,6 +22,6 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-public class ProfileFragment extends com.example.notebook.fragments.PostsFragment {
+public class ProfileFragment  extends Fragment {
 
 }
