@@ -41,8 +41,8 @@ public class SignupActivity extends AppCompatActivity {
         roles.add("Student");
 
         ArrayAdapter<String> dataAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, roles);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                new ArrayAdapter<String>(this, R.layout.spinner_item, roles);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(dataAdapter);
 
         etUsername = findViewById(R.id.etUsername);
@@ -52,7 +52,7 @@ public class SignupActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(v -> {
             Log.i(TAG, "Switched to login Screen");
-            goToActivity(com.example.notebook.LoginActivity.class);
+            goToActivity(LoginActivity.class);
         });
 //
         btnSignUp.setOnClickListener(v -> {
