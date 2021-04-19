@@ -41,8 +41,8 @@ public class SignupActivity extends AppCompatActivity {
         roles.add("Student");
 
         ArrayAdapter<String> dataAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, roles);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                new ArrayAdapter<String>(this, R.layout.spinner_item, roles);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(dataAdapter);
 
         etUsername = findViewById(R.id.etUsername);
@@ -52,7 +52,7 @@ public class SignupActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(v -> {
             Log.i(TAG, "Switched to login Screen");
-            goLoginActivity();
+            goToActivity(LoginActivity.class);
         });
 //
         btnSignUp.setOnClickListener(v -> {
@@ -90,31 +90,22 @@ public class SignupActivity extends AppCompatActivity {
             if (e != null) {
                 Log.e(TAG, "Issue with signup", e);
                 Toast.makeText(com.example.notebook.SignupActivity.this, "Issue with signup!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if(role.equals("Teacher")){
-                goMainActivity();
+                goToActivity(com.example.notebook.SignupActivity.class);
             }else {
-                goStudentActivity();
+                if (role.equals("Teacher")) {
+                    Log.i(TAG, "Role is " + ParseUser.getCurrentUser().get("Role"));
+                    goToActivity(com.example.notebook.MainActivity.class);
+                } else {
+                    goToActivity(com.example.notebook.StudentActivity.class);
+                }
             }
-
             //ParseUser.getCurrentUser().pinInBackground();
         });
     }
+    private void goToActivity(Class activity) {
+        Intent i = new Intent(this, activity);
+        startActivity(i);
+        finish();
 
-    private void goMainActivity() {
-        Intent i = new Intent(this, com.example.notebook.MainActivity.class);
-        startActivity(i);
-        finish();
-    }
-    private void goStudentActivity() {
-        Intent i = new Intent(this, com.example.notebook.StudentActivity.class);
-        startActivity(i);
-        finish();
-    }
-    private void goLoginActivity() {
-        Intent i = new Intent(this, com.example.notebook.LoginActivity.class);
-        startActivity(i);
-        finish();
     }
 }

@@ -30,9 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         if (ParseUser.getCurrentUser() != null) {
             if(ParseUser.getCurrentUser().get("Role").equals("Teacher")){
                 Log.i(TAG, "Role is " + ParseUser.getCurrentUser().get("Role"));
-                goMainActivity();
+                goToActivity(com.example.notebook.MainActivity.class);
             }else {
-                goStudentActivity();
+                goToActivity(com.example.notebook.StudentActivity.class);
             }
         }
 
@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 //
         btnSignUp.setOnClickListener(v -> {
             Log.i(TAG, "onClick signup button");
-            goSignupActivity();
+            goToActivity(com.example.notebook.SignupActivity.class);
         });
     }
 
@@ -61,32 +61,23 @@ public class LoginActivity extends AppCompatActivity {
             if(e != null) {
                 Log.e(TAG, "Problem with login", e);
                 Toast.makeText(com.example.notebook.LoginActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if(ParseUser.getCurrentUser().get("Role").equals("Teacher")){
-                Log.i(TAG, "Role is " + ParseUser.getCurrentUser().get("Role"));
-                goMainActivity();
+                goToActivity(com.example.notebook.LoginActivity.class);
             }else {
-                goStudentActivity();
+                if (ParseUser.getCurrentUser().get("Role").equals("Teacher")) {
+                    Log.i(TAG, "Role is " + ParseUser.getCurrentUser().get("Role"));
+                    goToActivity(com.example.notebook.MainActivity.class);
+                } else {
+                    goToActivity(com.example.notebook.StudentActivity.class);
+                }
             }
             //ParseUser.getCurrentUser().pinInBackground();
         });
 
     }
+    private void goToActivity(Class activity) {
+        Intent i = new Intent(this, activity);
+        startActivity(i);
+        finish();
 
-    private void goMainActivity() {
-        Intent i = new Intent(this, com.example.notebook.MainActivity.class);
-        startActivity(i);
-        finish();
-    }
-    private void goStudentActivity() {
-        Intent i = new Intent(this, com.example.notebook.StudentActivity.class);
-        startActivity(i);
-        finish();
-    }
-    private void goSignupActivity() {
-        Intent i = new Intent(this, com.example.notebook.SignupActivity.class);
-        startActivity(i);
-        finish();
     }
 }
