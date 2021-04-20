@@ -102,7 +102,7 @@ public class SignupActivity extends AppCompatActivity {
             //ParseUser.getCurrentUser().pinInBackground();
         });
     }
-    private void goToActivity(Class activity) {
+    private void goToActivity(java.lang.Class activity) {
         Intent i = new Intent(this, activity);
         startActivity(i);
         finish();
