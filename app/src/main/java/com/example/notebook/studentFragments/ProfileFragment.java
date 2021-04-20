@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        logOut = view.findViewById(R.id.LogOut2);
+        //logOut = view.findViewById(R.id.LogOut2);
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
