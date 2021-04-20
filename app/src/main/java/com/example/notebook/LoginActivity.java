@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-    private void goToActivity(Class activity) {
+    private void goToActivity(java.lang.Class activity) {
         Intent i = new Intent(this, activity);
         startActivity(i);
         finish();
