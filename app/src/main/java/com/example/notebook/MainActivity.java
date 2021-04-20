@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.notebook.fragments.GradesFragment;
+import com.example.notebook.fragments.ClassesFragment;
 import com.example.notebook.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
                         Toast.makeText(com.example.notebook.MainActivity.this, "action_home", Toast.LENGTH_SHORT).show();
-                        fragment = new com.example.notebook.fragments.PostsFragment();
+                        fragment = new GradesFragment();
                         break;
                     case R.id.action_classes:
-                        fragment = new com.example.notebook.fragments.ComposeFragment();
+                        fragment = new ClassesFragment();
                         break;
                     case R.id.action_profile:
                     default:

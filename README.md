@@ -8,7 +8,7 @@
 
 ## Overview
 ### Description
-Notebook is a simple app that allows instructor to post grades to his/her students. Students will be able to see their average grades for the class and for each assignment.
+Notebook is a simple app that allows instructor to aClass grades to his/her students. Students will be able to see their average grades for the class and for each assignment.
 
 ### Milestone 1 Progess
 ![](https://i.imgur.com/QxwH8Xe.gif)
@@ -22,7 +22,7 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 - **Market:** School Classroom
   -  There will always be students who need to learn and want to have a convenient way to access their schoolwork and know when their grades are changed. Our market is the school classroom where teachers can update grades for their students, and students can see those grades. 
 - **Habit:**
-  -  This app will be used when school is in session, and students will be checking this app daily to see their grades and what assignments are posted at the moment. The average user in this app, for the time being, will only be able to view their grades for each assignment the teach posts. In comparison, the teacher can create assignments and give grades back to students.
+  -  This app will be used when school is in session, and students will be checking this app daily to see their grades and what assignments are posted at the moment. The average user in this app, for the time being, will only be able to view their grades for each assignment the teach aClasses. In comparison, the teacher can create assignments and give grades back to students.
 - **Scope:**
   -  The scope of this app is well-formed as it is simple to make and can be built upon. If we finish on time, then we will be able to implement our optional stories.
 
@@ -32,8 +32,9 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
+
 - [x] As a student/instructor, an user can sign in and log in to the app.
-- [x] Student and Teachr see different Screens 
+- [x] Student and Teacher see different Screens 
 - [x] App knows if the user is logged in or out even if the app is closed.
 -[ ]As a student, the user can check the grades.
 -[ ]As an instructor, the user can post the students' grade. 
@@ -94,8 +95,8 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
    | teacher        | Bool | is this account a teacher or not |
    | password       | String   | password for user to use to login |
    | commentsCount | Number   | number of comments that has been posted to an image |
-   | createdAt     | DateTime | date when post is created (default field) |
-   | updatedAt     | DateTime | date when post is last updated (default field) |
+   | createdAt     | DateTime | date when aClass is created (default field) |
+   | updatedAt     | DateTime | date when aClass is last updated (default field) |
    
 ### Networking
 - - Home Feed Teacher Screen
@@ -104,12 +105,12 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
          let query = PFQuery(className:"Class")
          query.whereKey("teacher", equalTo: currentUser)
          query.order(byDescending: "createdAt")
-         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+         query.findObjectsInBackground { (aClasses: [PFObject]?, error: Error?) in
             if let error = error { 
                print(error.localizedDescription)
-            } else if let posts = posts {
-               print("Successfully retrieved \(posts.count) posts.")
-           // TODO: Do something with posts...
+            } else if let aClasses = aClasses {
+               print("Successfully retrieved \(aClasses.count) aClasses.")
+           // TODO: Do something with aClasses...
             }
          }
          ```
@@ -128,12 +129,12 @@ Notebook is a simple app that allows instructor to post grades to his/her studen
          let query = PFQuery(className:"Class")
          query.whereKey("student", equalTo: currentUser)
          query.order(byDescending: "createdAt")
-         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+         query.findObjectsInBackground { (aClasses: [PFObject]?, error: Error?) in
             if let error = error { 
                print(error.localizedDescription)
-            } else if let posts = posts {
-               print("Successfully retrieved \(posts.count) posts.")
-           // TODO: Do something with posts...
+            } else if let aClasses = aClasses {
+               print("Successfully retrieved \(aClasses.count) aClasses.")
+           // TODO: Do something with aClasses...
             }
          }
          ```
