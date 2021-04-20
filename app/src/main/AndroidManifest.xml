@@ -26,6 +26,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".StudentActivity"></activity>
         <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".createClass"></activity>
     </application>
 
 </manifest>

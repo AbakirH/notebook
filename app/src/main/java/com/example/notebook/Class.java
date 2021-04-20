@@ -9,7 +9,7 @@ import java.util.Date;
 
 @ParseClassName("Class")
 public class Class extends ParseObject {
-    public static final String KEY_CLASS_NAME = "className";
+    public static final String KEY_CLASS_NAME = "name";
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "teacherClass";
@@ -17,13 +17,12 @@ public class Class extends ParseObject {
     public static final String KEY_CREATED_KEY = "createdAt";
 
     public String getClassName() {
-        return getString(KEY_DESCRIPTION);
+        return getString(KEY_CLASS_NAME);
     }
 
     public void setClassName(String name) {
         put(KEY_CLASS_NAME, name);
     }
-
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
     }

@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.notebook.fragments.ClassesFragment;
+import com.example.notebook.fragments.GradesFragment;
 import com.example.notebook.studentFragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class StudentActivity extends AppCompatActivity{
@@ -33,7 +33,7 @@ public class StudentActivity extends AppCompatActivity{
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
                         Toast.makeText(com.example.notebook.StudentActivity.this, "action_home", Toast.LENGTH_SHORT).show();
-                        fragment = new ClassesFragment();
+                        fragment = new GradesFragment();
                         break;
                     case R.id.action_profile:
                     default:
