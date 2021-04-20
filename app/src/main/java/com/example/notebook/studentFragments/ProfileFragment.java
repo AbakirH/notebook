@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.notebook.LoginActivity;
 import com.example.notebook.R;
-import com.example.notebook.fragments.PostsFragment;
 import com.parse.ParseUser;
 
 public class ProfileFragment extends Fragment {
@@ -28,7 +27,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_profile, container, false);
+        return inflater.inflate(R.layout.activity_student_profile, container, false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

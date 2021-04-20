@@ -18,11 +18,11 @@ import java.util.List;
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
     private Context context;
-    private List<Post> posts;
+    private List<Class> aClasses;
 
-    public PostsAdapter(Context context, List<Post> posts) {
+    public PostsAdapter(Context context, List<Class> aClasses) {
         this.context = context;
-        this.posts = posts;
+        this.aClasses = aClasses;
     }
 
     @NonNull
@@ -34,23 +34,23 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Post post = posts.get(position);
-        holder.bind(post);
+        Class aClass = aClasses.get(position);
+        holder.bind(aClass);
     }
 
     @Override
     public int getItemCount() {
-        return posts.size();
+        return aClasses.size();
     }
 
     public void clear() {
-        posts.clear();
+        aClasses.clear();
         notifyDataSetChanged();
     }
 
     // Add a list of items -- change to type used
-    public void addAll(List<Post> list) {
-        posts.addAll(list);
+    public void addAll(List<Class> list) {
+        aClasses.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -67,12 +67,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvDescription = itemView.findViewById(R.id.tvDescription);
         }
 
-        public void bind(Post post) {
-            tvDescription.setText(post.getDescription());
-            tvUsername.setText(post.getUser().getUsername());
-            ParseFile image = post.getImage();
+        public void bind(Class aClass) {
+            tvDescription.setText(aClass.getDescription());
+            tvUsername.setText(aClass.getUser().getUsername());
+            ParseFile image = aClass.getImage();
             if (image != null) {
-                Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
+                Glide.with(context).load(aClass.getImage().getUrl()).into(ivImage);
             }
         }
     }
