@@ -27,12 +27,12 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_profile, container, false);
+        return inflater.inflate(R.layout.activity_student_profile, container, false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //logOut = view.findViewById(R.id.LogOut2);
+        logOut = view.findViewById(R.id.LogOut2);
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
