@@ -38,9 +38,9 @@ Notebook is a simple app that allows instructor to aClass grades to his/her stud
 - [x] Student and Teacher see different Screens 
 - [x] App knows if the user is logged in or out even if the app is closed.
 - [x] Teacher can create class for students to join
-- [ ](Work in progress) Teacher can view the classes they are teaching in a nice format 
-  -[ ]As a student, the user can check the grades.
-  -[ ]As an instructor, the user can post the students' grade. 
+- [ ] (Work in progress) Teacher can view the classes they are teaching in a nice format 
+- [ ] As a student, the user can check the grades.
+- [ ] As an instructor, the user can post the students' grade. 
 
 **Optional Nice-to-have Stories**
 - [x] Student profile screen looks nice
