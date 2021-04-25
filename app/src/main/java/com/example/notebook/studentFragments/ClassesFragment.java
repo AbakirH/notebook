@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,7 +32,7 @@ public class ClassesFragment extends Fragment {
 
     public static final String TAG = "ClassesFragment";
     private SwipeRefreshLayout swipeContainer;
-    private Button btnCreateClass;
+    private Button btnJoinClass;
     protected List<Class> allClasses;
     private RecyclerView rvClasses;
     protected ClassesAdapter adapter;
@@ -49,7 +48,7 @@ public class ClassesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_classes, container, false);
+        return inflater.inflate(R.layout.student_fragment_classes, container, false);
     }
 
     // This event is triggered soon after onCreateView().
@@ -57,7 +56,7 @@ public class ClassesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnCreateClass = view.findViewById(R.id.btnCreateClass);
+        btnJoinClass = view.findViewById(R.id.btnJoinClass);
         allClasses = new ArrayList<>();
         rvClasses = view.findViewById(R.id.rvClasses);
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
@@ -72,10 +71,10 @@ public class ClassesFragment extends Fragment {
         rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
         queryClasses();
 
-        btnCreateClass.setOnClickListener(new View.OnClickListener() {
+        btnJoinClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goCreateActivity();
+//                goCreateActivity();
             }
         });
 

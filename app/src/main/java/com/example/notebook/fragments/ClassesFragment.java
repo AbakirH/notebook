@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +21,6 @@ import com.example.notebook.R;
 import com.example.notebook.createClass;
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.example.notebook.Class;
 import com.parse.ParseUser;
@@ -58,7 +56,7 @@ public class ClassesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnCreateClass = view.findViewById(R.id.btnCreateClass);
+        btnCreateClass = view.findViewById(R.id.btnJoinClass);
         allClasses = new ArrayList<>();
         rvClasses = view.findViewById(R.id.rvClasses);
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
