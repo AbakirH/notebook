@@ -1,4 +1,4 @@
-package com.example.notebook.fragments;
+package com.example.notebook.studentFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,7 +32,7 @@ public class ClassesFragment extends Fragment {
 
     public static final String TAG = "ClassesFragment";
     private SwipeRefreshLayout swipeContainer;
-    private Button btnCreateClass;
+    private Button btnJoinClass;
     protected List<Class> allClasses;
     private RecyclerView rvClasses;
     protected ClassesAdapter adapter;
@@ -48,7 +48,7 @@ public class ClassesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_classes, container, false);
+        return inflater.inflate(R.layout.student_fragment_classes, container, false);
     }
 
     // This event is triggered soon after onCreateView().
@@ -56,7 +56,7 @@ public class ClassesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnCreateClass = view.findViewById(R.id.btnJoinClass);
+        btnJoinClass = view.findViewById(R.id.btnJoinClass);
         allClasses = new ArrayList<>();
         rvClasses = view.findViewById(R.id.rvClasses);
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
@@ -71,10 +71,10 @@ public class ClassesFragment extends Fragment {
         rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
         queryClasses();
 
-        btnCreateClass.setOnClickListener(new View.OnClickListener() {
+        btnJoinClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goCreateActivity();
+//                goCreateActivity();
             }
         });
 
@@ -85,8 +85,8 @@ public class ClassesFragment extends Fragment {
         Class createdClass = new Class();
         ParseQuery<Class> query = ParseQuery.getQuery(Class.class);
         query.whereContains("teacherClass", ParseUser.getCurrentUser().getObjectId());
-        Log.i(TAG, ParseUser.getCurrentUser().getObjectId());
         query.setLimit(20);
+        query.addDescendingOrder(Class.KEY_CREATED_KEY);
         query.findInBackground(new FindCallback<Class>() {
             @Override
             public void done(List<Class> Classes, ParseException e) {

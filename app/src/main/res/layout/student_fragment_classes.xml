@@ -20,7 +20,7 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="565dp">
+        android:layout_height="525dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvClasses"
@@ -33,6 +33,6 @@
         android:id="@+id/btnJoinClass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create Class" />
+        android:text="Join Class" />
 
 </LinearLayout>

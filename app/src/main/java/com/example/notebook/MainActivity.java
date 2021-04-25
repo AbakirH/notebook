@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ClassesFragment();
                         break;
                     case R.id.action_profile:
+                        fragment = new ProfileFragment();
+                        break;
                     default:
                         fragment = new ProfileFragment();
                         break;
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+        bottomNavigationView.setSelectedItemId(R.id.action_profile);
     }
 
 }
