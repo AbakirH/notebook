@@ -14,6 +14,8 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.util.Random;
+
 public class createClass extends AppCompatActivity {
     public static final String TAG = "createClass";
     private EditText classname;
@@ -52,6 +54,7 @@ public class createClass extends AppCompatActivity {
         createdClass.setUser(teacherUser);
         createdClass.setClassName(className);
         createdClass.setDescription(description);
+        createdClass.setClassID();
 
         Log.i(TAG, createdClass.getClassName());
         createdClass.saveInBackground(new SaveCallback() {
@@ -73,4 +76,5 @@ public class createClass extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
 }

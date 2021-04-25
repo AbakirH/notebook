@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.notebook.fragments.GradesFragment;
+import com.example.notebook.studentFragments.ClassesFragment;
 import com.example.notebook.studentFragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class StudentActivity extends AppCompatActivity{
@@ -33,9 +33,11 @@ public class StudentActivity extends AppCompatActivity{
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
                         Toast.makeText(com.example.notebook.StudentActivity.this, "action_home", Toast.LENGTH_SHORT).show();
-                        fragment = new GradesFragment();
+                        fragment = new ClassesFragment();
                         break;
                     case R.id.action_profile:
+                        fragment = new ProfileFragment();
+                        break;
                     default:
                         fragment = new ProfileFragment();
                         break;
@@ -44,6 +46,6 @@ public class StudentActivity extends AppCompatActivity{
                 return true;
             }
         });
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+        bottomNavigationView.setSelectedItemId(R.id.action_profile);
     }
 }

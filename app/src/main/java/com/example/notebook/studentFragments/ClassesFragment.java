@@ -1,4 +1,4 @@
-package com.example.notebook.fragments;
+package com.example.notebook.studentFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +22,6 @@ import com.example.notebook.R;
 import com.example.notebook.createClass;
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.example.notebook.Class;
 import com.parse.ParseUser;
@@ -87,8 +86,8 @@ public class ClassesFragment extends Fragment {
         Class createdClass = new Class();
         ParseQuery<Class> query = ParseQuery.getQuery(Class.class);
         query.whereContains("teacherClass", ParseUser.getCurrentUser().getObjectId());
-        Log.i(TAG, ParseUser.getCurrentUser().getObjectId());
         query.setLimit(20);
+        query.addDescendingOrder(Class.KEY_CREATED_KEY);
         query.findInBackground(new FindCallback<Class>() {
             @Override
             public void done(List<Class> Classes, ParseException e) {

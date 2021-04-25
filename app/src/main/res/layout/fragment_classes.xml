@@ -6,10 +6,21 @@
     android:orientation="vertical"
     tools:context=".fragments.ClassesFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:paddingBottom="1dp"
+        android:text="Classes"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="223dp">
+        android:layout_height="482dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvClasses"
@@ -17,17 +28,6 @@
             android:layout_height="match_parent"
             android:padding="8dp" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:paddingBottom="10dp"
-        android:text="Classes"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnCreateClass"
