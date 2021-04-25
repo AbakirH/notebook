@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.notebook.Class;
-import com.example.notebook.PostsAdapter;
+import com.example.notebook.ClassesAdapter;
 import com.example.notebook.R;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class GradesFragment extends Fragment {
     public static final String TAG = "ClassesFragment";
     private SwipeRefreshLayout swipeContainer;
     private RecyclerView rvPosts;
-    protected PostsAdapter adapter;
+    protected ClassesAdapter adapter;
     protected List<Class> allClasses;
 
     public GradesFragment() {
@@ -38,7 +38,7 @@ public class GradesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_posts, container, false);
+        return inflater.inflate(R.layout.fragment_classes, container, false);
     }
 
     @Override

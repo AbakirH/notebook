@@ -15,12 +15,12 @@ import com.parse.ParseFile;
 
 import java.util.List;
 
-public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
+public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHolder> {
 
     private Context context;
     private List<Class> aClasses;
 
-    public PostsAdapter(Context context, List<Class> aClasses) {
+    public ClassesAdapter(Context context, List<Class> aClasses) {
         this.context = context;
         this.aClasses = aClasses;
     }
@@ -56,24 +56,23 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvUsername;
+        private TextView tvClassName;
         private ImageView ivImage;
         private TextView tvDescription;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUsername = itemView.findViewById(R.id.tvUsername);
-            ivImage = itemView.findViewById(R.id.ivImage);
+            tvClassName = itemView.findViewById(R.id.tvClassName);
             tvDescription = itemView.findViewById(R.id.tvDescription);
         }
 
         public void bind(Class aClass) {
             tvDescription.setText(aClass.getDescription());
-            tvUsername.setText(aClass.getUser().getUsername());
-            ParseFile image = aClass.getImage();
-            if (image != null) {
-                Glide.with(context).load(aClass.getImage().getUrl()).into(ivImage);
-            }
+            tvClassName.setText(aClass.getClassName());
+//            ParseFile image = aClass.getImage();
+//            if (image != null) {
+//                Glide.with(context).load(aClass.getImage().getUrl()).into(ivImage);
+//            }
         }
     }
 }
