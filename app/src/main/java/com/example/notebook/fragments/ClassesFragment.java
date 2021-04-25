@@ -7,17 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.notebook.PostsAdapter;
+
+import com.example.notebook.ClassesAdapter;
 import com.example.notebook.R;
 import com.example.notebook.createClass;
 import com.parse.FindCallback;
@@ -25,15 +25,17 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.example.notebook.Class;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClassesFragment extends Fragment {
 
     public static final String TAG = "ClassesFragment";
+    private SwipeRefreshLayout swipeContainer;
     private Button btnCreateClass;
     protected List<Class> allClasses;
+    private RecyclerView rvClasses;
+    protected ClassesAdapter adapter;
 
 
     public ClassesFragment() {
@@ -56,7 +58,17 @@ public class ClassesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         btnCreateClass = view.findViewById(R.id.btnCreateClass);
         allClasses = new ArrayList<>();
+        rvClasses = view.findViewById(R.id.rvClasses);
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
 
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
+        adapter = new ClassesAdapter(getContext(), allClasses);
+        rvClasses.setAdapter(adapter);
+        rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
         queryClasses();
 
         btnCreateClass.setOnClickListener(new View.OnClickListener() {
@@ -87,8 +99,7 @@ public class ClassesFragment extends Fragment {
                             + "Class Description: " + createdClass.getDescription(), Toast.LENGTH_LONG).show();
                 }
                 allClasses.addAll(Classes);
-
-//                adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
         });
     }
