@@ -11,6 +11,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 @ParseClassName("Class")
@@ -58,8 +59,17 @@ public class Class extends ParseObject {
         put(KEY_USER, user);
     }
 
-    public String getStudents() {
-        return getString(KEY_STUDENTS);
+    public List<String> getStudents() {
+        return getList(KEY_STUDENTS);
+    }
+
+    public void setStudents(List<String> students) {
+        put(KEY_STUDENTS, students);
+    }
+    public void addStudent(String user) {
+        List<String> students = getStudents();
+        students.add(user);
+        put(KEY_STUDENTS, students);
     }
 
     // String setStudents function to do

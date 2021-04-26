@@ -20,7 +20,7 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="565dp">
+        android:layout_height="518dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvClasses"

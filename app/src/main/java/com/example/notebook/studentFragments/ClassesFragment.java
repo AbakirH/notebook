@@ -10,7 +10,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -66,6 +68,19 @@ public class ClassesFragment extends Fragment {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.e(TAG, "fetching data");
+                allClasses = new ArrayList<>();
+                adapter = new ClassesAdapter(getContext(), allClasses);
+                rvClasses.setAdapter(adapter);
+                rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
+                queryClasses();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+
         adapter = new ClassesAdapter(getContext(), allClasses);
         rvClasses.setAdapter(adapter);
         rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -74,17 +89,21 @@ public class ClassesFragment extends Fragment {
         btnJoinClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                goCreateActivity();
+                showEditDialog();
             }
         });
 
     }
-
+    private void showEditDialog() {
+        FragmentManager fm = ((AppCompatActivity) getActivity()).getSupportFragmentManager();
+        EditNameDialogFragment editNameDialogFragment = EditNameDialogFragment.newInstance("Some Title");
+        editNameDialogFragment.show(fm, "fragment_edit_name");
+    }
     protected void queryClasses() {
         // Specify which class to query
         Class createdClass = new Class();
         ParseQuery<Class> query = ParseQuery.getQuery(Class.class);
-        query.whereContains("teacherClass", ParseUser.getCurrentUser().getObjectId());
+        query.whereContains(Class.KEY_STUDENTS, ParseUser.getCurrentUser().getObjectId());
         query.setLimit(20);
         query.addDescendingOrder(Class.KEY_CREATED_KEY);
         query.findInBackground(new FindCallback<Class>() {

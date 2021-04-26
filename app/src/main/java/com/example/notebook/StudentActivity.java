@@ -2,6 +2,8 @@ package com.example.notebook;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,14 +14,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notebook.studentFragments.ClassesFragment;
+import com.example.notebook.studentFragments.EditNameDialogFragment;
 import com.example.notebook.studentFragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-public class StudentActivity extends AppCompatActivity{
+public class StudentActivity extends AppCompatActivity {
     public static final String TAG = "StudentActivity";
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,5 +49,9 @@ public class StudentActivity extends AppCompatActivity{
             }
         });
         bottomNavigationView.setSelectedItemId(R.id.action_profile);
+//
     }
+
+
+
 }
