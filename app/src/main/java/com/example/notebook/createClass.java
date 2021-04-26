@@ -14,6 +14,9 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class createClass extends AppCompatActivity {
@@ -50,10 +53,13 @@ public class createClass extends AppCompatActivity {
     }
 
     private void saveClass(ParseUser teacherUser, String className, String description) {
+        List<String> students = new ArrayList<>();
+
         Class createdClass = new Class();
         createdClass.setUser(teacherUser);
         createdClass.setClassName(className);
         createdClass.setDescription(description);
+        createdClass.setStudents(students);
         createdClass.setClassID();
 
         Log.i(TAG, createdClass.getClassName());

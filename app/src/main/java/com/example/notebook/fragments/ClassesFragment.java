@@ -66,6 +66,18 @@ public class ClassesFragment extends Fragment {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.e(TAG, "fetching data");
+                allClasses = new ArrayList<>();
+                adapter = new ClassesAdapter(getContext(), allClasses);
+                rvClasses.setAdapter(adapter);
+                rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
+                queryClasses();
+                swipeContainer.setRefreshing(false);
+            }
+        });
         adapter = new ClassesAdapter(getContext(), allClasses);
         rvClasses.setAdapter(adapter);
         rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -84,7 +96,7 @@ public class ClassesFragment extends Fragment {
         // Specify which class to query
         Class createdClass = new Class();
         ParseQuery<Class> query = ParseQuery.getQuery(Class.class);
-        query.whereContains("teacherClass", ParseUser.getCurrentUser().getObjectId());
+        query.whereContains(Class.KEY_USER, ParseUser.getCurrentUser().getObjectId());
         Log.i(TAG, ParseUser.getCurrentUser().getObjectId());
         query.setLimit(20);
         query.findInBackground(new FindCallback<Class>() {
