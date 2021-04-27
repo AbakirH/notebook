@@ -94,8 +94,7 @@ public class ClassesFragment extends Fragment {
 
     protected void queryClasses() {
         // Specify which class to query
-        Class createdClass = new Class();
-        ParseQuery<Class> query = ParseQuery.getQuery(Class.class);
+        ParseQuery<Class> query = ParseQuery.getQuery("Class");
         query.whereContains(Class.KEY_USER, ParseUser.getCurrentUser().getObjectId());
         Log.i(TAG, ParseUser.getCurrentUser().getObjectId());
         query.setLimit(20);
