@@ -1,6 +1,7 @@
 package com.example.notebook;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
 
     private Context context;
     private List<Class> aClasses;
+    private boolean teacherUser = false;
 
     public ClassesAdapter(Context context, List<Class> aClasses) {
         this.context = context;
@@ -28,7 +31,14 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_post, parent, false);
+        View view;
+        if(ParseUser.getCurrentUser().get("Role").equals("Teacher")){
+            teacherUser = true;
+            view = LayoutInflater.from(context).inflate(R.layout.item_post, parent, false);
+        }else {
+            teacherUser = false;
+            view = LayoutInflater.from(context).inflate(R.layout.student_item_class, parent, false);
+        }
         return new ViewHolder(view);
     }
 
@@ -59,16 +69,25 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
         private TextView tvClassName;
         private ImageView ivImage;
         private TextView tvDescription;
-
+        private TextView classID;
+        private TextView numStudents;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvClassName = itemView.findViewById(R.id.tvClassName);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            if(teacherUser){
+                classID = itemView.findViewById(R.id.classID);
+                numStudents = itemView.findViewById(R.id.numStudents);
+            }
         }
 
         public void bind(Class aClass) {
-            tvDescription.setText(aClass.getDescription());
+            tvDescription.setText("Description: " + aClass.getDescription());
             tvClassName.setText(aClass.getClassName());
+            if(teacherUser){
+                classID.setText("Class ID: " + aClass.getClassID());
+                numStudents.setText("Number of Students in the Class: " + aClass.getStudents().size());
+            }
 //            ParseFile image = aClass.getImage();
 //            if (image != null) {
 //                Glide.with(context).load(aClass.getImage().getUrl()).into(ivImage);

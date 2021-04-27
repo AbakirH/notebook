@@ -14,7 +14,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notebook.studentFragments.ClassesFragment;
-import com.example.notebook.studentFragments.EditNameDialogFragment;
 import com.example.notebook.studentFragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class StudentActivity extends AppCompatActivity {
