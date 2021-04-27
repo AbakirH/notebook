@@ -20,22 +20,6 @@
         tools:text="Class name" />
 
     <TextView
-        android:id="@+id/classID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Class ID:"
-        android:textColor="#000000"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/numStudents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Number of Students:"
-        android:textColor="#000000"
-        android:textSize="20dp" />
-
-    <TextView
         android:id="@+id/tvDescription"
         android:layout_width="391dp"
         android:layout_height="wrap_content"

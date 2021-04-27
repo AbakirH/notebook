@@ -72,9 +72,9 @@ public class Class extends ParseObject {
         put(KEY_STUDENTS, students);
     }
 
-    // String setStudents function to do
-    public String getClassID() {
-        return getString(KEY_STUDENTS);
+
+    public Number getClassID() {
+        return getNumber(KEY_CLASS_ID);
     }
 
     public void setClassID() {

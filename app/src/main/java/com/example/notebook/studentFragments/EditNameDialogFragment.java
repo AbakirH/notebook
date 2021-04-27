@@ -15,8 +15,6 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.notebook.Class;
 import com.example.notebook.R;
-import com.example.notebook.createClass;
-import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
