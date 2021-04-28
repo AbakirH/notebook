@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,8 @@ import com.parse.ParseUser;
 
 public class ProfileFragment  extends Fragment {
     private Button logOut;
+    private TextView name;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -32,6 +35,10 @@ public class ProfileFragment  extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        name = view.findViewById(R.id.tv_name);
+        name.setText(ParseUser.getCurrentUser().getUsername());
+
         logOut = view.findViewById(R.id.LogOut2);
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
