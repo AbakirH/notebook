@@ -12,8 +12,11 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notebook.Class;
+import com.example.notebook.ClassesAdapter;
 import com.example.notebook.R;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -21,6 +24,8 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 // ...
 
@@ -71,17 +76,16 @@ public class EditNameDialogFragment extends DialogFragment {
                 if (isNumeric(classID)) {
                     joinClass(classID);
                     Log.i(TAG, "A number was entered");
-
                 } else {
                     Toast.makeText(getContext(), "You have to enter a valid number to join a class", Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "A not valid number was entered ");
                 }
-
             }
         });
     }
 
     private void joinClass(String classID){
+        // Refresh page when class is added
         Log.i(TAG, "Test");
         ParseQuery<Class> query = ParseQuery.getQuery(Class.class);
         query.whereEqualTo("classID", Integer.parseInt(classID));
@@ -92,7 +96,7 @@ public class EditNameDialogFragment extends DialogFragment {
                     Log.e(TAG, "Issue with getting the class for the student to join", e);
                     return;
                 }else {
-                    createdClass.addStudent(ParseUser.getCurrentUser().getObjectId());
+                    createdClass.addStudent(ParseUser.getCurrentUser().getUsername(),ParseUser.getCurrentUser().getObjectId());
                     createdClass.saveInBackground(new SaveCallback() {
                         @Override
                         public void done(ParseException e) {

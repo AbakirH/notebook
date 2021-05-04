@@ -1,10 +1,13 @@
 package com.example.notebook;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -22,6 +28,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     private Context context;
     private List<Class> aClasses;
     private boolean teacherUser = false;
+    private Button classDetails;
 
     public ClassesAdapter(Context context, List<Class> aClasses) {
         this.context = context;
@@ -78,6 +85,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
             if(teacherUser){
                 classID = itemView.findViewById(R.id.classID);
                 numStudents = itemView.findViewById(R.id.numStudents);
+                classDetails = itemView.findViewById(R.id.classDetails);
             }
         }
 
@@ -87,11 +95,27 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
             if(teacherUser){
                 classID.setText("Class ID: " + aClass.getClassID());
                 numStudents.setText("Number of Students in the Class: " + aClass.getStudents().size());
+                classDetails.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //
+                        goCreateActivity(v, aClass.getClassName(), aClass.getStudents().size() , aClass.getStudents());
+                    }
+                });
             }
 //            ParseFile image = aClass.getImage();
 //            if (image != null) {
 //                Glide.with(context).load(aClass.getImage().getUrl()).into(ivImage);
 //            }
         }
+        private void goCreateActivity(View view, String className, int size, List<String> students) {
+            Intent i = new Intent(view.getContext(), ClassDetails.class);
+            i.putExtra("className", className);
+            i.putExtra("numStudents", size);
+            i.putExtra("students", Parcels.wrap(students));
+            view.getContext().startActivity(i);
+        }
     }
+
+
 }

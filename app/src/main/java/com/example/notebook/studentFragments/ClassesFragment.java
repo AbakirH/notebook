@@ -96,9 +96,10 @@ public class ClassesFragment extends Fragment {
     }
     private void showEditDialog() {
         FragmentManager fm = ((AppCompatActivity) getActivity()).getSupportFragmentManager();
-        EditNameDialogFragment editNameDialogFragment = EditNameDialogFragment.newInstance("Some Title");
-        editNameDialogFragment.show(fm, "fragment_edit_name");
+        EditNameDialogFragment editNameDialogFragment = EditNameDialogFragment.newInstance("Join Class");
+        editNameDialogFragment.show(fm, "join_class_pop_up");
     }
+
     protected void queryClasses() {
         // Specify which class to query
         Class createdClass = new Class();
@@ -123,11 +124,5 @@ public class ClassesFragment extends Fragment {
             }
         });
     }
-    private void goCreateActivity() {
-        Intent i = new Intent(getContext(), createClass.class);
-        startActivity(i);
-        getActivity().finish();
-    }
-
 
 }
