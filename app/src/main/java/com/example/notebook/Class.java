@@ -1,15 +1,16 @@
 package com.example.notebook;
 
 import android.util.Log;
+import android.widget.Toast;
 
-import com.parse.GetCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -66,10 +67,27 @@ public class Class extends ParseObject {
     public void setStudents(List<String> students) {
         put(KEY_STUDENTS, students);
     }
-    public void addStudent(String user) {
+
+    public void addStudent(String name, String user) {
+        Student student = new Student(name, user);
+        student.setName(name);
+        student.setGrade("-");
+        student.setObjectID(user);
+        Log.i(TAG, student.getClassName());
+        student.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e != null){
+                    Log.e(TAG, "Error while saving", e);
+                }
+                Log.i(TAG, "Class saved successful!");
+            }
+        });
+
         List<String> students = getStudents();
         students.add(user);
         put(KEY_STUDENTS, students);
+
     }
 
 

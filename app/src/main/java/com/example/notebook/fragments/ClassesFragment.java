@@ -37,7 +37,6 @@ public class ClassesFragment extends Fragment {
     private RecyclerView rvClasses;
     protected ClassesAdapter adapter;
 
-
     public ClassesFragment() {
         // Required empty public constructor
     }
@@ -60,7 +59,6 @@ public class ClassesFragment extends Fragment {
         allClasses = new ArrayList<>();
         rvClasses = view.findViewById(R.id.rvClasses);
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
-
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
