@@ -9,6 +9,8 @@
 ## Overview
 ### Description
 Notebook is a simple app that allows instructor to aClass grades to his/her students. Students will be able to see their average grades for the class and for each assignment.
+### Milestone 3 Progess
+![](https://i.imgur.com/YDH0tWY.gif)
 ### Milestone 2 Progess
 ![](https://i.imgur.com/vKj1iy3.gif)
 ### Milestone 1 Progess
@@ -38,12 +40,14 @@ Notebook is a simple app that allows instructor to aClass grades to his/her stud
 - [x] Student and Teacher see different Screens 
 - [x] App knows if the user is logged in or out even if the app is closed.
 - [x] Teacher can create class for students to join
-- [ ] (Work in progress) Teacher can view the classes they are teaching in a nice format 
-- [ ] As a student, the user can check the grades.
-- [ ] As an instructor, the user can post the students' grade. 
+- [x] Teacher can view the classes they are teaching in a nice format 
+- [x] As a student, the user can check the classes they are in and join the class they are in.
+- [ ] (Work in Progress) As a student, the user can check the grades.
+- [ ] (Work in Progress) As an instructor, the user can post the students' grade. 
 
 **Optional Nice-to-have Stories**
 - [x] Student profile screen looks nice
+- [x] Teacher profile screen looks nice
 * A student can check the GPA, school year, name in the profile.
 * An instructor can see the list of students, emails, and classes. 
 
