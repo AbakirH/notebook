@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grade"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -20,16 +21,43 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <Spinner
+        android:id="@+id/studentClass"
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:popupBackground="@color/colorPrimary" />
+
+    <Spinner
+        android:id="@+id/student"
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentClass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:popupBackground="@color/colorPrimary" />
+
     <Button
         android:id="@+id/inputGrades"
         android:layout_width="162dp"
         android:layout_height="71dp"
+        android:layout_below="@+id/gradeEdit"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="28dp"
         android:layout_weight="1"
         android:gravity="center"
         android:text="Input Grades" />
+
+    <EditText
+        android:id="@+id/gradeEdit"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/student"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:hint="Grade:" />
 </RelativeLayout>

@@ -58,13 +58,13 @@ public class ClassDetailsAdapter extends RecyclerView.Adapter<ClassDetailsAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvStudentname = itemView.findViewById(R.id.tvStudentName);
-            tvGrade = itemView.findViewById(R.id.tvStudentName);
+            tvGrade = itemView.findViewById(R.id.studentGrade);
 
         }
 
         public void bind(Student aClass) {
             tvStudentname.setText(aClass.getName());
-
+            tvGrade.setText("Grade: " + aClass.getGrade());
 //            ParseFile image = aClass.getImage();
 //            if (image != null) {
 //                Glide.with(context).load(aClass.getImage().getUrl()).into(ivImage);
