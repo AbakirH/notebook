@@ -3,10 +3,12 @@ package com.example.notebook;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -74,16 +76,31 @@ public class Class extends ParseObject {
         student.setGrade("-");
         student.setObjectID(user);
         Log.i(TAG, student.getClassName());
-        student.saveInBackground(new SaveCallback() {
+
+        ParseQuery<Student> query = ParseQuery.getQuery("Students");
+        query.whereContains(Student.KEY_OBJECT_ID, user);
+        query.setLimit(1);
+        query.findInBackground(new FindCallback<Student>() {
             @Override
-            public void done(ParseException e) {
-                if(e != null){
-                    Log.e(TAG, "Error while saving", e);
+            public void done(List<Student> students, ParseException e) {
+                if (e != null) {
+                    for (Student createdStudent : students) {
+                        student.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e != null){
+                                    Log.e(TAG, "Error while saving", e);
+                                }
+                                Log.i(TAG, "Class saved successful!");
+                            }
+                        });
+
+                    return;
                 }
-                Log.i(TAG, "Class saved successful!");
+                    Log.e(TAG, "user already exists", e);
+                }
             }
         });
-
         List<String> students = getStudents();
         students.add(user);
         put(KEY_STUDENTS, students);
