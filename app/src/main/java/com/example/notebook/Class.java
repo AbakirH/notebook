@@ -78,28 +78,29 @@ public class Class extends ParseObject {
         Log.i(TAG, student.getClassName());
 
         ParseQuery<Student> query = ParseQuery.getQuery("Students");
+        Log.i(TAG, user);
         query.whereContains(Student.KEY_OBJECT_ID, user);
-        query.setLimit(1);
+        query.setLimit(2);
         query.findInBackground(new FindCallback<Student>() {
             @Override
             public void done(List<Student> students, ParseException e) {
-                if (e != null) {
-                    for (Student createdStudent : students) {
-                        student.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(ParseException e) {
-                                if(e != null){
-                                    Log.e(TAG, "Error while saving", e);
-                                }
-                                Log.i(TAG, "Class saved successful!");
+                if (students.isEmpty()) {
+                    Log.e(TAG, students.toString() + "user already exists " + user, e);
+                    student.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e != null) {
+                                Log.e(TAG, "Error while saving", e);
                             }
-                        });
-
+                            Log.i(TAG, "Student saved successful!");
+                        }
+                    });
                     return;
-                }
-                    Log.e(TAG, "user already exists", e);
+                } else {
+                    Log.e(TAG, students.toString() + "user already exists " + student.getName(), e);
                 }
             }
+
         });
         List<String> students = getStudents();
         students.add(user);
